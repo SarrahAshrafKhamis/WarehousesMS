@@ -1,0 +1,39 @@
+﻿<Window x:Class="WarehousesProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarehousesProject"
+        xmlns:views="clr-namespace:WarehousesProject.Views"
+        xmlns:viewmodels="clr-namespace:WarehousesProject.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <viewmodels:WareHouseViewModel x:Key="warehouseviewmodel"/>
+        <viewmodels:ItemViewModel x:Key="itemviewmodel"/>
+        <viewmodels:ImporterViewModel x:Key="importerviewmodel"/>
+        <viewmodels:ClientViewModel x:Key="clientviewmodel"/>
+    </Window.Resources>
+    <TabControl TabStripPlacement="Left">
+        <TabItem Header="Warehouses">
+            <Grid DataContext="{StaticResource warehouseviewmodel}">
+                <views:WareHouseView/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Items">
+            <Grid DataContext="{StaticResource itemviewmodel}">
+                <views:ItemView/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Importers">
+            <Grid DataContext="{StaticResource importerviewmodel}">
+                <views:ImporterView/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Clients">
+            <Grid DataContext="{StaticResource clientviewmodel}">
+                <views:ClientView/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
